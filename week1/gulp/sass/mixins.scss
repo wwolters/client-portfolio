@@ -1,0 +1,25 @@
+@mixin square($size, $color) {
+  width: $size;
+  height: $size;
+  background-color: $color;
+}
+
+//.small-blue-square {
+//  @include square(20px, rgb(0,0,255));
+//}
+//
+//.big-red-square {
+//  @include square(300px, rgb(255,0,0));
+//}
+
+@mixin transform-tilt() {
+  $tilt: rotate(15deg);
+
+  -webkit-transform: $tilt; /* Ch <36, Saf 5.1+, iOS, An =<4.4.4 */
+  -ms-transform: $tilt; /* IE 9 */
+  transform: $tilt; /* IE 10, Fx 16+, Op 12.1+ */
+}
+
+//.frame:hover {
+//  @include transform-tilt;
+//}
