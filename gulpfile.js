@@ -11,7 +11,7 @@ gulp.task('html', function () {
         .pipe(livereload());
 });
 
-gulp.task('build', ['html', 'css'], function () {
+gulp.task('build', ['html', 'sass', 'css'], function () {
 
 });
 
@@ -37,7 +37,7 @@ gulp.task('css', function () {
     return gulp.src('./css/**/*.css')
         .pipe(clean_css({compatibility: 'ie9'}))
         .pipe(auto_prefixer('last 2 version', 'safari 5', 'ie 9'))
-        .pipe(concat('style.min.css'))
+        .pipe(concat('style.css'))
         .pipe(gulp.dest('./dist'))
         .pipe(livereload());
 });
