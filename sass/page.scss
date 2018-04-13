@@ -1,14 +1,14 @@
 .columnscontainer {
   display: flex;
   flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: center;
 
   section {
     width: 100%;
-    margin: auto;
 
     display: flex;
     flex-flow: column;
-    align-items: stretch;
   }
 
   @media(min-width: 600px) {
