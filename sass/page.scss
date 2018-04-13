@@ -1,20 +1,22 @@
 .columnscontainer {
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media(min-width: 960px) {
+    flex-wrap: nowrap;
+  }
 
   section {
     width: 100%;
-
+    max-width: 600px;
     display: flex;
     flex-flow: column;
-  }
-
-  @media(min-width: 600px) {
-    section {
-      width: 600px;
-    }
   }
 }
 
