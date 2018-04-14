@@ -1,10 +1,94 @@
-nav {
-  display: flex;
-  flex-flow: row wrap;
+#menucontainer {
 
-  a {
-    display: inline-block;
-    padding: 5px 10px 5px;
-    background: olive;
+  $show-hide-transition: .5s ease-in-out;
+
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 0;
+  width: 100%;
+  background: olive;
+  z-index: 1000;
+
+  input {
+    display: block;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    position: relative;
+  }
+
+  input:checked ~ #menu {
+    max-height: 280px;
+  }
+
+  input:checked ~ .hamburger {
+    transform: rotate(45deg);
+    &:after {
+      transform: rotate(90deg);
+      bottom: 0;
+    }
+    &:before {
+      transform: rotate(90deg);
+      top: 0;
+    }
+  }
+
+  #menu {
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100%;
+    position: relative;
+    transition: $show-hide-transition;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  li {
+    padding: 0 16px;
+    margin: 0;
+    height: 40px;
+    line-height: 40px;
+  }
+
+  li:hover {
+    background: green;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .hamburger {
+    position: absolute;
+    top: 18px;
+    left: 5px;
+    height: 2px;
+    width: 30px;
+    background: #000;
+    transform-origin: center;
+    transition: $show-hide-transition;
+    &:after,
+    &:before {
+      transition: $show-hide-transition;
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: #000;
+    }
+    &:before {
+      top: -10px;
+    }
+    &:after {
+      bottom: -10px;
+    }
   }
 }
