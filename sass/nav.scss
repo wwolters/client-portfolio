@@ -1,6 +1,12 @@
-#menucontainer {
+$show-hide-transition: .4s ease-in-out;
+$header-height: 40px;
+$num-menu-items: 6;
 
-  $show-hide-transition: .5s ease-in-out;
+.columnscontainer {
+  margin-top: $header-height;
+}
+
+#top_header {
 
   display: block;
   position: fixed;
@@ -13,18 +19,26 @@
 
   input {
     display: block;
-    width: 40px;
-    height: 40px;
+    width: $header-height;
+    height: $header-height;
     cursor: pointer;
     opacity: 0;
     margin: 0;
     padding: 0;
     z-index: 1000;
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  img {
+    margin-left: $header-height;
+    height: $header-height;
+    display: block;
   }
 
   input:checked ~ #menu {
-    max-height: 280px;
+    max-height: #{$num-menu-items * $header-height};
   }
 
   input:checked ~ .hamburger {
@@ -37,6 +51,17 @@
       transform: rotate(90deg);
       top: 0;
     }
+  }
+
+  .bar {
+    display: flex;
+  }
+
+  .page_title {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 8px;
+    font-size: 150%;
   }
 
   #menu {
@@ -52,8 +77,8 @@
   li {
     padding: 0 16px;
     margin: 0;
-    height: 40px;
-    line-height: 40px;
+    height: $header-height;
+    line-height: $header-height;
   }
 
   li:hover {
