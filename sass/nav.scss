@@ -1,3 +1,5 @@
+@import "mixins";
+
 $show-hide-transition: .4s ease-in-out;
 $header-height: 40px;
 $num-menu-items: 6;
@@ -15,7 +17,7 @@ $num-menu-items: 6;
     top: 0;
     padding: 0;
     width: 100%;
-    background: olive;
+    background: $color-primary;
     z-index: 1000;
 
     input {
@@ -84,7 +86,7 @@ $num-menu-items: 6;
     }
 
     li:hover {
-      background: green;
+      background: $color-highlight;
     }
 
     ul {
@@ -141,7 +143,7 @@ $num-menu-items: 6;
     ul {
       list-style-type: none;
       padding: 0;
-      background: olive;
+      background: $color-primary;
 
       li {
         padding: 0 16px;
@@ -152,7 +154,7 @@ $num-menu-items: 6;
     }
 
     li:hover {
-      background: green;
+      background: $color-highlight;
     }
 
     img {
