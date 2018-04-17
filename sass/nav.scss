@@ -32,12 +32,6 @@ $num-menu-items: 6;
       left: 0;
     }
 
-    img {
-      margin-left: $header-height;
-      height: $header-height;
-      display: block;
-    }
-
     input:checked ~ #menu {
       max-height: #{$num-menu-items * $header-height};
     }
@@ -54,8 +48,11 @@ $num-menu-items: 6;
       }
     }
 
-    .bar {
-      display: flex;
+    img {
+      margin-left: $header-height;
+      height: $header-height;
+      display: block;
+      float: left;
     }
 
     .page_title {
@@ -63,6 +60,10 @@ $num-menu-items: 6;
       margin-bottom: auto;
       margin-left: 8px;
       font-size: 150%;
+      float: left;
+      display: block;
+      line-height: $header-height;
+      height: $header-height;
     }
 
     #menu {
