@@ -12,7 +12,7 @@ gulp.task('html', function () {
         .pipe(livereload());
 });
 
-gulp.task('build', gulpsync.sync(['html', 'sass', 'css']), function () {
+gulp.task('build', gulpsync.async(['html', ['sass', 'css'], 'js']), function () {
 
 });
 
@@ -32,6 +32,7 @@ gulp.task('watch', function () {
     gulp.watch('index.html', ['html']);
     gulp.watch('css/**/*.css', ['css']);
     gulp.watch('sass/**/*.scss', ['sass']);
+    gulp.watch('js/**/*.js', ['js']);
 });
 
 gulp.task('css', function () {
@@ -40,5 +41,11 @@ gulp.task('css', function () {
         .pipe(auto_prefixer('last 2 version', 'safari 5', 'ie 9'))
         .pipe(concat('style.css'))
         .pipe(gulp.dest('./dist'))
+        .pipe(livereload());
+});
+
+gulp.task('js', function () {
+    return gulp.src('./js/**/*.js')
+        .pipe(gulp.dest('./dist/js'))
         .pipe(livereload());
 });
