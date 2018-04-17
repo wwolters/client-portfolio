@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var gulpsync = require('gulp-sync')(gulp);
 var sass = require('gulp-sass');
 var auto_prefixer = require('gulp-autoprefixer');
 var clean_css = require('gulp-clean-css');
@@ -11,7 +12,7 @@ gulp.task('html', function () {
         .pipe(livereload());
 });
 
-gulp.task('build', ['html', 'sass', 'css'], function () {
+gulp.task('build', gulpsync.sync(['html', 'sass', 'css']), function () {
 
 });
 
