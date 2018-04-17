@@ -121,8 +121,13 @@ $num-menu-items: 6;
   }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 601px) {
+  $image-size: 100px;
   #top_header {
+    position: relative;
+    padding-left: $image-size;
+    height: $image-size;
+
     input, .hamburger {
       display: none;
     }
@@ -130,6 +135,7 @@ $num-menu-items: 6;
     #menu {
       display: flex;
       flex-flow: row nowrap;
+      margin: 0;
     }
 
     ul {
@@ -147,6 +153,28 @@ $num-menu-items: 6;
 
     li:hover {
       background: green;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: $image-size;
+      height: $image-size;
+    }
+
+    .page_title {
+      font-size: 200%;
+      position: absolute;
+      left: #{$image-size + 8};
+      bottom: $header-height;
+    }
+
+    #menucontainer {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: calc(100% - #{$image-size + 8});
     }
   }
 }
