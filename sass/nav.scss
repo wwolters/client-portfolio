@@ -2,118 +2,150 @@ $show-hide-transition: .4s ease-in-out;
 $header-height: 40px;
 $num-menu-items: 6;
 
-.columnscontainer {
-  margin-top: $header-height;
+@media (max-width: 600px) {
+  .columnscontainer {
+    margin-top: $header-height;
+  }
+
+  #top_header {
+
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 0;
+    width: 100%;
+    background: olive;
+    z-index: 1000;
+
+    input {
+      display: block;
+      width: $header-height;
+      height: $header-height;
+      cursor: pointer;
+      opacity: 0;
+      margin: 0;
+      padding: 0;
+      z-index: 1000;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    img {
+      margin-left: $header-height;
+      height: $header-height;
+      display: block;
+    }
+
+    input:checked ~ #menu {
+      max-height: #{$num-menu-items * $header-height};
+    }
+
+    input:checked ~ .hamburger {
+      transform: rotate(45deg);
+      &:after {
+        transform: rotate(90deg);
+        bottom: 0;
+      }
+      &:before {
+        transform: rotate(90deg);
+        top: 0;
+      }
+    }
+
+    .bar {
+      display: flex;
+    }
+
+    .page_title {
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: 8px;
+      font-size: 150%;
+    }
+
+    #menu {
+      margin-top: 0;
+      margin-bottom: 0;
+      width: 100%;
+      position: relative;
+      transition: $show-hide-transition;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    li {
+      padding: 0 16px;
+      margin: 0;
+      height: $header-height;
+      line-height: $header-height;
+    }
+
+    li:hover {
+      background: green;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .hamburger {
+      position: absolute;
+      top: 18px;
+      left: 5px;
+      height: 2px;
+      width: 30px;
+      background: #000;
+      transform-origin: center;
+      transition: $show-hide-transition;
+      &:after,
+      &:before {
+        transition: $show-hide-transition;
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: #000;
+      }
+      &:before {
+        top: -10px;
+      }
+      &:after {
+        bottom: -10px;
+      }
+    }
+  }
 }
 
-#top_header {
-
-  display: block;
-  position: fixed;
-  left: 0;
-  top: 0;
-  padding: 0;
-  width: 100%;
-  background: olive;
-  z-index: 1000;
-
-  input {
-    display: block;
-    width: $header-height;
-    height: $header-height;
-    cursor: pointer;
-    opacity: 0;
-    margin: 0;
-    padding: 0;
-    z-index: 1000;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  img {
-    margin-left: $header-height;
-    height: $header-height;
-    display: block;
-  }
-
-  input:checked ~ #menu {
-    max-height: #{$num-menu-items * $header-height};
-  }
-
-  input:checked ~ .hamburger {
-    transform: rotate(45deg);
-    &:after {
-      transform: rotate(90deg);
-      bottom: 0;
+@media (min-width: 600px) {
+  #top_header {
+    input, .hamburger {
+      display: none;
     }
-    &:before {
-      transform: rotate(90deg);
-      top: 0;
+
+    #menu {
+      display: flex;
+      flex-flow: row nowrap;
     }
-  }
 
-  .bar {
-    display: flex;
-  }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      background: olive;
 
-  .page_title {
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 8px;
-    font-size: 150%;
-  }
-
-  #menu {
-    margin-top: 0;
-    margin-bottom: 0;
-    width: 100%;
-    position: relative;
-    transition: $show-hide-transition;
-    max-height: 0;
-    overflow: hidden;
-  }
-
-  li {
-    padding: 0 16px;
-    margin: 0;
-    height: $header-height;
-    line-height: $header-height;
-  }
-
-  li:hover {
-    background: green;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  .hamburger {
-    position: absolute;
-    top: 18px;
-    left: 5px;
-    height: 2px;
-    width: 30px;
-    background: #000;
-    transform-origin: center;
-    transition: $show-hide-transition;
-    &:after,
-    &:before {
-      transition: $show-hide-transition;
-      content: "";
-      position: absolute;
-      display: block;
-      width: 100%;
-      height: 100%;
-      background: #000;
+      li {
+        padding: 0 16px;
+        margin: 0;
+        height: $header-height;
+        line-height: $header-height;
+      }
     }
-    &:before {
-      top: -10px;
-    }
-    &:after {
-      bottom: -10px;
+
+    li:hover {
+      background: green;
     }
   }
 }
