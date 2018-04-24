@@ -28,10 +28,13 @@ var feedbackWidget = (function ($) {
 
         var newElement = $('<div class="feedback"></div>');
         newElement.append('<span class="feedback-text">' +  text + '</span>');
-        // TODO handle callToAction
         var closeButton = $('<a href="#" class="feedback-close">x</a>');
         closeButton.click(close);
         newElement.append(closeButton);
+        if (callToAction) {
+            var callToActionButton = $('<a href="' + callToAction.link + '" class="feedback-call-to-action">' + callToAction.text + '</a>');
+            newElement.append(callToActionButton);
+        }
         elements.$container.append(newElement);
 
         elements.$openElement = newElement;
