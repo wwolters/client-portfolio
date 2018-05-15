@@ -47,11 +47,14 @@ body {
   }
 }
 
-.feedback {
-  @extend .card;
+#feedbackcontainer {
   position: fixed;
   right: 16px;
   top: 16px;
+}
+
+.feedback {
+  @extend .card;
   min-width: 104px;
   background: white;
   z-index: 1000000;

@@ -5,7 +5,7 @@ $header-height: 40px;
 $num-menu-items: 6;
 
 @media (max-width: 600px) {
-  .columnscontainer {
+  body {
     margin-top: $header-height;
   }
 
