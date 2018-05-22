@@ -55,7 +55,7 @@ spa.router = (function () {
     showHomepage = function () {
         console.log('homepage');
         var html = spa.template
-            .parseTemplate('features.homepage.homepage', {});
+            .parseTemplate('features.homepage.homepage', {newsCount: 3});
         jqueryMap.$page_container.html(html);
     };
 
@@ -104,7 +104,7 @@ spa.router = (function () {
         // to the location of paths which do not
         // match any of the following routes
         // var baseUrl = 'file:///C:/Users/EB0095856/Documents/Projecten/client_upgrade/labs/spa_routing_templating/dist/index.html';
-        page.base('');
+        page.base();
         page('/', showHomepage);
         page('/index.html', showHomepage);
         page('/login', showLoginPage);
