@@ -23,6 +23,9 @@ spa.data = (function () {
 
     ajax = {
         get: function (route) {
+            if (route === 'reviews') {
+                return getReviews();
+            }
 
             var _url = configMap.url + '/' + route;
 
@@ -36,6 +39,18 @@ spa.data = (function () {
         }
     };
 
+    var getReviews = function () {
+        return new Promise((resolve, reject) => {
+            var mockReviews = [
+                spa.model.review.get_review("Vette game", "Beste spel dat ik ooit heb gespeeld", "10/10", "Jan Janssen"),
+                spa.model.review.get_review("Vette game", "Beste spel dat ik ooit heb gespeeld", "10/10", "Jan Janssen"),
+                spa.model.review.get_review("Vette game", "Beste spel dat ik ooit heb gespeeld", "10/10", "Jan Janssen")
+            ];
+            resolve({
+                reviews: mockReviews
+            })
+        });
+    };
 
     initModule = function () {
 

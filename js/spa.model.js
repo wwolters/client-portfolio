@@ -13,22 +13,27 @@ spa.model = (function () {
 //---------------- BEGIN MODULE SCOPE VARIABLES --------------
     var
         configMap = {},
-        cart,
+        review,
         initModule;
 
     // The cart object API
     // -------------------
     // The cart object is available at spa.model.cart.
     // The cart object provides methods and events to manage
-    cart = (function () {
-        var get_cart;
+    review = (function () {
+        var get_review;
 
-        get_cart = function () {
-            return {}; //TODO implementatie
+        get_review = function (title, review, author, score) {
+            return {
+                title: title,
+                review: review,
+                author: author,
+                score: score
+            };
         };
 
         return {
-            get_cart: get_cart
+            get_review: get_review
         };
     }());
 //----------------- END MODULE SCOPE VARIABLES ---------------
@@ -44,7 +49,7 @@ spa.model = (function () {
 
     return {
         initModule: initModule,
-        cart: cart
+        review: review
     };
 //------------------- END PUBLIC METHODS ---------------------
 }());
