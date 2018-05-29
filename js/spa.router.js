@@ -42,6 +42,7 @@ spa.router = (function () {
 
     var showLoginPage = function(){
         console.log('show login page...');
+        spa.feedback.closeAll();
         var html = spa.template.parseTemplate('features.login.login', {});
         jqueryMap.$page_container.html(html);
         // console.log('verwachte exceptie:');
@@ -51,6 +52,7 @@ spa.router = (function () {
 
     var showHomepage = function () {
         console.log('homepage');
+        spa.feedback.closeAll();
         var html = spa.template
             .parseTemplate('features.homepage.homepage', {newsCount: 3});
         jqueryMap.$page_container.html(html);
@@ -58,6 +60,7 @@ spa.router = (function () {
 
     var showReviews = function() {
         console.log('reviews');
+        spa.feedback.closeAll();
         var html = spa.template.parseTemplate('features.reviews.reviews');
         jqueryMap.$page_container.html(html);
     };
