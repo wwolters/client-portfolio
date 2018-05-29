@@ -22,9 +22,6 @@ spa.router = (function () {
         },
         stateMap = {$container: null},
         jqueryMap = {},
-        setJqueryMap,
-        showLoginPage,
-        showHomepage,
         configModule, initModule;
 //----------------- END MODULE SCOPE VARIABLES ---------------
 
@@ -36,14 +33,14 @@ spa.router = (function () {
 
 //--------------------- BEGIN DOM METHODS --------------------
 // Begin DOM method /setJqueryMap/
-    setJqueryMap = function () {
+    var setJqueryMap = function () {
         var $container = stateMap.$container;
         jqueryMap = {
             $page_container: $container.find('.spa-shell-main-content')
         };
     };
 
-    showLoginPage = function(){
+    var showLoginPage = function(){
         console.log('show login page...');
         var html = spa.template.parseTemplate('features.login.login', {});
         jqueryMap.$page_container.html(html);
@@ -52,10 +49,16 @@ spa.router = (function () {
 
     };
 
-    showHomepage = function () {
+    var showHomepage = function () {
         console.log('homepage');
         var html = spa.template
             .parseTemplate('features.homepage.homepage', {newsCount: 3});
+        jqueryMap.$page_container.html(html);
+    };
+
+    var showReviews = function() {
+        console.log('reviews');
+        var html = spa.template.parseTemplate('features.reviews.reviews');
         jqueryMap.$page_container.html(html);
     };
 
@@ -108,6 +111,7 @@ spa.router = (function () {
         page('/', showHomepage);
         page('/index.html', showHomepage);
         page('/login', showLoginPage);
+        page('/reviews', showReviews);
         page();
 
         return true;

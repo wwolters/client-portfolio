@@ -51,13 +51,15 @@ body {
   position: fixed;
   right: 16px;
   top: 16px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000000;
 }
 
 .feedback {
   @extend .card;
   min-width: 104px;
   background: white;
-  z-index: 1000000;
 
   .feedback-text {
 
@@ -65,8 +67,9 @@ body {
 
   .feedback-close {
     display: inline-block;
-    position: absolute;
+    float: right;
     right: 8px;
+    cursor: pointer;
 
     color: inherit;
     text-decoration: inherit;

@@ -24,18 +24,12 @@ spa.data = (function () {
     ajax = {
         get: function (route) {
 
-            var _url = configMap.url + '/' + route,
-                _ajaxConfig = {
-                    dataType: 'json',
-                    contentType: 'application/json',
-                    type: 'get',
-                    complete: function (data) {
-                        //TODO na success dan ....
-                    }
-                };
+            var _url = configMap.url + '/' + route;
 
-            return $.ajax(_url, _ajaxConfig)
+            return $.getJSON(_url)
                 .catch(function (err) {
+                    console.log('Error while getting data: ' + err);
+                    spa.feedback.open('Het is niet gelukt om de gegevens op te halen.');
                     //TODO err implementatie.... spa.feedbackWidget
                     // .showError('Het is niet gelukt om de gegevens op te halen.');
                 })

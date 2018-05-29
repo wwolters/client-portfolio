@@ -17,6 +17,7 @@ var spa = (function () {
         spa.template.initModule(window.spa_templates.templates);
         spa.shell.initModule( $container );
         spa.router.initModule($container);
+        spa.feedback.initModule( $container.find('#feedbackcontainer') )
     };
 
     return { initModule: initModule };
