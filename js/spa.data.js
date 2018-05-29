@@ -32,7 +32,7 @@ spa.data = (function () {
             return $.getJSON(_url)
                 .catch(function (err) {
                     console.log('Error while getting data: ' + err);
-                    spa.feedback.open('Het is niet gelukt om de gegevens op te halen.');
+                    spa.feedback.open('Het is niet gelukt om de gegevens op te halen.', null, 'error');
                     //TODO err implementatie.... spa.feedbackWidget
                     // .showError('Het is niet gelukt om de gegevens op te halen.');
                 })

@@ -80,5 +80,10 @@ body {
     display: block;
     font-weight: bold;
   }
+
+  &.error {
+    background: red;
+    color: white
+  }
 }
 

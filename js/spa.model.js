@@ -12,7 +12,6 @@
 spa.model = (function () {
 //---------------- BEGIN MODULE SCOPE VARIABLES --------------
     var
-        configMap = {},
         review,
         initModule;
 

@@ -12,10 +12,10 @@ spa.feedback = (function ($) {
      * @param text The text to show
      * @param callToAction optionally: the call-to-action button. Should be an object {text: "", link: ""}
      */
-    function open(text, callToAction) {
+    function open(text, callToAction, type) {
         storeInLocalStorage(text);
 
-        var newElement = $('<div class="feedback"></div>');
+        var newElement = $('<div class="feedback ' + (type ? type : "") + '"></div>');
         newElement.append('<span class="feedback-text">' +  text + '</span>');
         var closeButton = $('<a class="feedback-close">x</a>');
         closeButton.on('click', function () {
