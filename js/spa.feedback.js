@@ -36,7 +36,7 @@ spa.feedback = (function ($) {
             window.localStorage.removeItem(window.localStorage.key(0));
         }
 
-        window.localStorage.setItem(new Date().getDate() + '', text);
+        window.localStorage.setItem(new Date().getTime() + '', text);
     }
 
     function closeAll() {
