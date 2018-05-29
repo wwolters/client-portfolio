@@ -32,7 +32,11 @@ spa.feedback = (function ($) {
     }
 
     function storeInLocalStorage(text) {
+        if (window.localStorage.length > 9) {
+            window.localStorage.removeItem(window.localStorage.key(0));
+        }
 
+        window.localStorage.setItem(new Date().getDate() + '', text);
     }
 
     function closeAll() {
