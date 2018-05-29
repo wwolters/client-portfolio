@@ -63,6 +63,18 @@ spa.router = (function () {
         spa.feedback.closeAll();
         var html = spa.template.parseTemplate('features.reviews.reviews');
         jqueryMap.$page_container.html(html);
+
+        spa.data.ajax.get('reviews')
+            .then(value => {
+                var $container = $('.reviews');
+                $container.find('article').remove();
+                for (var i = 0; i < value.reviews.length; i++) {
+                    $container.append(
+                        spa.template.parseTemplate('features.reviews.single_review', { review: value.reviews[i] })
+                    );
+                }
+
+            });
     };
 
 // End DOM method /setJqueryMap/

@@ -43,7 +43,7 @@ spa.data = (function () {
         return new Promise((resolve, reject) => {
             var mockReviews = [
                 spa.model.review.get_review("Vette game", "Beste spel dat ik ooit heb gespeeld", "10/10", "Jan Janssen"),
-                spa.model.review.get_review("Vette game", "Beste spel dat ik ooit heb gespeeld", "10/10", "Jan Janssen"),
+                spa.model.review.get_review("Stom spel", "Superslecht", "1/10", "Troll"),
                 spa.model.review.get_review("Vette game", "Beste spel dat ik ooit heb gespeeld", "10/10", "Jan Janssen")
             ];
             resolve({

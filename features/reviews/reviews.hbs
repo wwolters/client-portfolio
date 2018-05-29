@@ -1,17 +1,4 @@
 <section class="columnscontainer">
-    <script>
-        spa.data.ajax.get('reviews')
-                .then(value => {
-                    var $container = $('.reviews');
-                    $container.find('article').remove();
-                    for (var i = 0; i < value.reviews.length; i++) {
-                        $container.append(
-                            spa.template.parseTemplate('features.reviews.single_review', { review: value.reviews[i] })
-                        );
-                    }
-
-                });
-    </script>
 
     <section class="reviews">
         <header><h1>Reviews</h1></header>
